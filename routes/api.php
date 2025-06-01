@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/createPost',[ PostController::class , 'createPost' ]);
-
+Route::put('/editPost/{id}', [PostController::class, 'editPost']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
