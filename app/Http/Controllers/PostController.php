@@ -42,8 +42,25 @@ class PostController extends Controller
             return response()->json([
                 'error' => $e
             ]);
-        }
-        
+        } 
+    }
+
+    public function deletePost(Post $post){
+
+        $post->delete();
+
+        return response()->json([
+            'message' => 'Post supprime ',
+            'status' => 200
+        ]);
+
+    }
+
+    public function Posts(){
+        $post = Post::all();
+        return response()->json([
+            "post" => $post
+        ]);
     }
 
 
