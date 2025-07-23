@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\createPostRequest;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -63,5 +64,21 @@ class PostController extends Controller
         ]);
     }
 
+    public function test(){
+        return response()->json('Test');
+    }
+
+    public function register(Request $request) {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+
+        ]);
+        return response()->json([
+            'status' => 200,
+            'user' => $user
+        ]);
+    }
 
 }
