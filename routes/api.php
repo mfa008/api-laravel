@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ Route::delete('/deletePost/{post}', [PostController::class, 'deletePost']);
 Route::get('/Posts', [PostController::class, 'Posts']);
 Route::get('/test', [PostController::class, 'test']);
 
-Route::post('/register', [PostController::class, 'register']);
+Route::post('/register', [UserController::class, 'register']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
